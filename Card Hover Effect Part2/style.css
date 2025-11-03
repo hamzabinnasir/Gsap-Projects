@@ -29,7 +29,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: clamp(16px, 4vw, 50px);
 }
 
 .cardParent {
@@ -43,8 +43,10 @@ body {
 } */
 
 .card {
-    height: 75vh;
+    /* Responsive sizing: keep a card aspect ratio and scale by viewport */
     width: 25vw;
+    height: auto;
+    aspect-ratio: 5 / 7;
     position: relative;
     transform-origin: center;
     transform: rotateY(0deg);
@@ -131,5 +133,64 @@ body {
 
     to {
         transform: rotateY(360deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .card {
+        width: 30vw;
+    }
+    .front h1 {
+        font-size: 56px;
+    }
+}
+
+@media (max-width: 992px) {
+    #main {
+        padding: 24px 16px;
+        flex-wrap: wrap;
+    }
+    .card {
+        width: 38vw;
+    }
+    .front h1 {
+        font-size: 48px;
+    }
+    .front p {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 768px) {
+    #main {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        padding: 32px 16px;
+    }
+    .card {
+        width: 80vw;
+    }
+    .front {
+        padding: 8% 7%;
+    }
+    .front h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 90vw;
+    }
+    .front h1 {
+        font-size: 34px;
+    }
+    .front p {
+        font-size: 10px;
+    }
+    .line {
+        width: 100%;
     }
 }
