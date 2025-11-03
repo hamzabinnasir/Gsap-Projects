@@ -150,3 +150,103 @@ body::-webkit-scrollbar{
     object-fit: cover;
     border-radius: 5px;
 }
+
+/* Responsive tweaks */
+@media (max-width: 1200px) {
+    .left {
+        padding-left: 12%;
+    }
+    .right {
+        gap: 24px;
+    }
+    .img {
+        width: 130px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .left {
+        padding-left: 8%;
+    }
+    .img {
+        width: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    #main {
+        height: auto;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+    .overlay,
+    .old,
+    .noise {
+        height: 100%;
+        min-height: 100vh;
+    }
+    .left {
+        padding: 24px 16px;
+        flex: unset;
+    }
+    .left h1{
+        font-size: clamp(28px, 12vw, 48px);
+    }
+    #para {
+        font-size: clamp(12px, 2.8vw, 16px);
+        line-height: 1.5;
+    }
+    .arrowDiv p {
+        font-size: clamp(12px, 2.8vw, 14px);
+    }
+    .icon{
+        font-size: clamp(12px, 2.8vw, 14px);
+    }
+    .p{
+        font-size: clamp(11px, 2.5vw, 13px);
+    }
+    .right{
+        padding: 12px 16px 24px;
+        gap: 16px;
+        flex: unset;
+    }
+    .lineOne , .lineTwo{
+        height: 50vh;
+    }
+    .column{
+        height: 120vh;
+        gap: 8px;
+    }
+    .column2{
+        margin-top: -60vh;
+    }
+    .img{
+        width: 42vw;
+        max-width: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .left {
+        padding: 20px 14px;
+    }
+    .right{
+        padding: 8px 14px 20px;
+        gap: 12px;
+    }
+    .lineOne , .lineTwo{
+        height: 46vh;
+    }
+    .column{
+        height: 110vh;
+        gap: 6px;
+    }
+    .column2{
+        margin-top: -56vh;
+    }
+    .img{
+        width: 60vw;
+        max-width: 200px;
+        border-radius: 4px;
+    }
+}
