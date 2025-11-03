@@ -261,6 +261,7 @@
 
 
 
+
 function dom() {
     const canvas = document.querySelector("#page3 canvas");
     const context = canvas.getContext("2d");
@@ -516,7 +517,6 @@ function dom() {
 dom()
 
 
-
 // For Smooth Scrolling
 const lenis = new Lenis()
 
@@ -530,3 +530,27 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf)
+
+// Mobile menu toggle
+const menuToggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", function(){
+        const open = mobileMenu.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    mobileMenu.addEventListener("click", function(e){
+        if (e.target.tagName === "A") {
+            mobileMenu.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+        }
+    });
+    window.addEventListener("resize", function(){
+        if (window.innerWidth > 768 && mobileMenu.classList.contains("open")) {
+            mobileMenu.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+        }
+    })
+}
+
+// Mobile menu JS removed
