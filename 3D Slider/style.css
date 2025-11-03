@@ -27,6 +27,15 @@ body {
         repeating-linear-gradient(to bottom, transparent 0px 100px, #999 100px 101px)
 }
 
+/* Responsive base variables */
+:root{
+    --slide-width: 150px;
+    --slide-height: 200px;
+    --radius: 400px;
+    --perspective: 1000px;
+    --tilt-x: -16deg;
+}
+
 /* Main */
 #main {
     height: 100vh;
@@ -51,9 +60,9 @@ body {
     position: absolute;
     top: 10%;
     left: 50%;
-    height: 200px;
-    width: 150px;
-    transform: translate( -50% , 0%) perspective(1000px) rotateX(-16deg);
+    height: var(--slide-height);
+    width: var(--slide-width);
+    transform: translate( -50% , 0%) perspective(var(--perspective)) rotateX(var(--tilt-x));
     transform-style: preserve-3d;
     animation: rotate 20s linear infinite;
     /* display: flex;
@@ -62,11 +71,11 @@ body {
 }
 /* Animation */
 @keyframes rotate{
-    form{
-        transform: translate( -50% , 0%) perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    from{
+        transform: translate( -50% , 0%) perspective(var(--perspective)) rotateX(var(--tilt-x)) rotateY(0deg);
     }
     to{
-        transform: translate( -50% , 0%) perspective(1000px) rotateX(-16deg) rotateY(360deg);
+        transform: translate( -50% , 0%) perspective(var(--perspective)) rotateX(var(--tilt-x)) rotateY(360deg);
     }
 }
 
@@ -75,7 +84,7 @@ body {
     width: 100%;
     position: absolute;
     transform-origin: center;
-    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(400px);
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(var(--radius));
     /* translateZ end pr ay ga or transform-style: preserve-3d parent div ki property hai */
 }
 
@@ -128,7 +137,7 @@ body {
 }
 
 .contentBox p{
-    font-size: 10px;
+    font-size: clamp(10px, 2.2vw, 14px);
     text-align: right;
 }
 
@@ -139,4 +148,54 @@ body {
     left: 50%;
     transform: translate(-50% , 0%);
     z-index: 1;
+}
+
+/* Breakpoints */
+@media (max-width: 1200px){
+    :root{
+        --slide-width: 130px;
+        --slide-height: 180px;
+        --radius: 320px;
+    }
+    .img{ width: 40%; top: 30%; }
+}
+
+@media (max-width: 992px){
+    :root{
+        --slide-width: 110px;
+        --slide-height: 160px;
+        --radius: 260px;
+        --perspective: 900px;
+    }
+    .img{ width: 45%; top: 32%; }
+}
+
+@media (max-width: 768px){
+    :root{
+        --slide-width: 90px;
+        --slide-height: 130px;
+        --radius: 210px;
+        --perspective: 850px;
+    }
+    .content{
+        flex-direction: column;
+        gap: 12px;
+        bottom: 10px;
+    }
+    .content h1{ font-size: 18vw; }
+    .contentBox p{ text-align: center; }
+    .img{ width: 55%; top: 34%; }
+}
+
+@media (max-width: 576px){
+    :root{
+        --slide-width: 70px;
+        --slide-height: 100px;
+        --radius: 170px;
+        --perspective: 800px;
+        --tilt-x: -12deg;
+    }
+    .slider{ top: 8%; }
+    .content h1{ font-size: 20vw; }
+    .img{ width: 65%; top: 36%; }
 }
