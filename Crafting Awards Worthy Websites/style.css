@@ -46,6 +46,7 @@ li {
     position: fixed;
     top: 0px;
     width: 100%;
+    z-index:99;
 }
 
 #navbar .part1,
@@ -69,6 +70,18 @@ li {
     height: 50px;
     background-color: #222
 }
+
+/* Burger toggle (hidden on desktop by default) */
+#menuToggle{
+    display: none;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Burger toggle removed */
 
 /* List Containers */
 .listContainer {
@@ -243,3 +256,95 @@ li {
 }
 
 
+/* Mobile menu panel */
+#mobileMenu{
+    position: fixed;
+    top: 105px;
+    left: 0;
+    right: 0;
+    background: #0f0f0f;
+    color: #fff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 9;
+}
+
+#mobileMenu.open{ max-height: 70vh; }
+
+#mobileMenu ul{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px;
+}
+
+#mobileMenu ul li a{ font-size: 14px; color: #ddd; }
+
+.mobile-cta{ padding: 0 16px 16px 16px; }
+
+#buyBtnMobile{
+    background-color: rgb(255, 183, 0);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 9px 16px;
+    border-radius: 3px;
+    font-size: 12px;
+    border: 1px solid rgb(255, 183, 0);
+}
+
+/* ------------------ Responsive ------------------ */
+/* Large tablets and down */
+@media (max-width: 1024px) {
+    .part1 ul { gap: 12px; }
+    .part2 ul { gap: 12px; }
+    #logo{ width: 90px; }
+    .icon { font-size: 18px; }
+}
+
+/* Tablets and down */
+@media (max-width: 768px) {
+    #navbar .part1,
+    .part2 { padding: 0px 4%; }
+
+    .part1 { height: 50px; }
+    .part2 { height: 48px; }
+
+    /* Hide wide menus, reveal burger */
+    .part1 ul { display: none; }
+    .icons { display: none; }
+    .part2 ul { display: none; }
+    #menuToggle{ display: inline-flex; align-items: center; justify-content: center; }
+
+    #buyBtn { padding: 7px 14px; font-size: 12px; }
+
+    /* Page2 text and buttons */
+    .textContainer p {
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: left;
+        padding: 0 16px;
+    }
+
+    .btnAndPara{ flex-wrap: wrap; gap: 10px; margin-top: 12px; padding: 0 16px; }
+    #buyBtn2{ font-size: 12px; padding: 8px 16px; }
+    .iconAndPara p{ font-size: 12px; }
+
+    #page3 canvas{ height: 90vh; }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+    #logo{ width: 80px; }
+    #header{ background-position: center top; }
+    .part1 { height: 46px; }
+    .part2 { height: 44px; }
+
+    #page2{ height: auto; padding: 80px 0 40px; }
+    .textContainer p{ font-size: 13px; }
+    #buyBtn2{ font-size: 11px; padding: 8px 14px; }
+    .iconAndPara p{ font-size: 11px; }
+
+    #page3 canvas{ height: 75vh; }
+}
