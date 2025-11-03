@@ -1,22 +1,41 @@
-var tl1 = gsap.timeline({
-    scrollTrigger: {
-        scroller: "body",
-        trigger: "#main",
-        scrub: true,
-        pin: true,
-        start: "50% 50%",
-        end: "150% 50%",
+ScrollTrigger.matchMedia({
+    "(min-width: 769px)": function() {
+        var tl1 = gsap.timeline({
+            scrollTrigger: {
+                scroller: "body",
+                trigger: "#main",
+                scrub: true,
+                pin: true,
+                start: "50% 50%",
+                end: "150% 50%",
+            }
+        });
+        tl1.to(".column1", {
+            marginTop: "-120vh",
+        }, "ha");
+        tl1.to(".column2", {
+            marginTop: "15vh",
+        }, "ha");
+    },
+    "(max-width: 768px)": function() {
+        var tl1 = gsap.timeline({
+            scrollTrigger: {
+                scroller: "body",
+                trigger: "#main",
+                scrub: true,
+                pin: false,
+                start: "top top",
+                end: "+=200%",
+            }
+        });
+        tl1.to(".column1", {
+            marginTop: "-60vh",
+        }, "ha");
+        tl1.to(".column2", {
+            marginTop: "5vh",
+        }, "ha");
     }
 });
-
-
-tl1.to(".column1", {
-    marginTop: "-120vh",
-}, "ha");
-
-tl1.to(".column2", {
-    marginTop: "15vh",
-}, "ha");
 
 
 // Creating spans between h1 tags
