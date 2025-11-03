@@ -37,13 +37,16 @@
             <li>Shopify</li>
         </ul>
         <button id="loginBtn">Login</button>
+        <button id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+            <i class="ri-menu-line"></i>
+        </button>
     </nav>
 
     <!-- Main -->
     <div id="main">
         <!-- Head -->
         <div id="head">
-            <img id="img1" src="assets/images/image1.png" alt="no img">
+            <img id="img1" src="assets/images/image1.png" alt="decorative shape" loading="lazy" decoding="async">
             <div class="hello">
                 <h1>Text Marketing</h1>
                 <svg width="21" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +55,7 @@
                         fill="#0083FF"></path>
                 </svg>
             </div>
-            <img id="img2" src="assets/images/image2.png" alt="no img">
+            <img id="img2" src="assets/images/image2.png" alt="decorative shape" loading="lazy" decoding="async">
         </div>
         <h1 id="purple">for Shopify E-Commerce </h1>
         <p id="para">Increase your revenue by $1000’s with Text Messaging. <br> Send Broadcasts, Create Automations,
@@ -77,8 +80,8 @@
         <p id="startedPara">Get Started Now - No Credit Card Necessary</p>
     </div>
     <div class="imgContainer">
-        <img class="image image1" src="assets/images/image4.jpg" alt="no img">
-        <img class="image image2" src="assets/images/image5.jpg" alt="no img">
+        <img class="image image1" src="assets/images/image4.jpg" alt="product preview one" loading="eager" decoding="async">
+        <img class="image image2" src="assets/images/image5.jpg" alt="product preview two" loading="lazy" decoding="async">
     </div>
 
     <div class="page2"></div>
@@ -91,6 +94,35 @@
     integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>  -->
+<!-- Mobile Menu -->
+<div id="mobileMenu" aria-hidden="true">
+    <div class="mobileMenu-header">
+        <div class="logo">
+            <svg width="28" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0)" fill="#0083FF">
+                    <path d="M16.32 19.21a6.75 6.75 0 01-7.2 0c-.56-.35-1.19.38-.76.88a5.73 5.73 0 008.73 0c.44-.5-.2-1.23-.77-.88z"></path>
+                    <path d="M15.85 4.52c-.6-.08-1.2-.13-1.83-.13v-.01h-.04A4.45 4.45 0 0011.14.3a4.46 4.46 0 00-4.96 1.17h-.02s-7.35 7.14-6 18.11c.06.55.15 1.08.27 1.6v.01A13.8 13.8 0 1015.85 4.52zM7.98 3.23s1.37-1.52 2.6-.29c0 .01 0 .02.02.02.16.18 1.19 1.42-.58 2.81a6.96 6.96 0 00-2.16 2.77 6.69 6.69 0 012.46-1.44 9.91 9.91 0 014.15-.15A10 10 0 112.74 16.8v-.26-.16A20.5 20.5 0 017.98 3.23z"></path>
+                </g>
+                <defs>
+                    <clipPath id="clip0">
+                        <path fill="#fff" d="M0 0h35v32H0z"></path>
+                    </clipPath>
+                </defs>
+            </svg>
+            <h2>BlueReceipt'</h2>
+        </div>
+        <button id="closeMenuBtn" aria-label="Close menu">
+            <i class="ri-close-line"></i>
+        </button>
+    </div>
+    <ul class="mobileMenu-links">
+        <li><a href="#" data-menu-link>About</a></li>
+        <li><a href="#" data-menu-link>Blog</a></li>
+        <li><a href="#" data-menu-link>Career</a></li>
+        <li><a href="#" data-menu-link>Shopify</a></li>
+    </ul>
+    <button class="mobileMenu-login" data-menu-link>Login</button>
+</div>
 <script src="script.js"></script>
 
 </html>
